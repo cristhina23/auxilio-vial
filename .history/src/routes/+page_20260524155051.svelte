@@ -1,0 +1,3 @@
+
+<svelte:component this={  Navbar
+
