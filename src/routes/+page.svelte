@@ -6,6 +6,7 @@
   import WhyUs from '$lib/components/WhyUs.svelte';
   import HowItWorks from '$lib/components/HowItWorks.svelte';
   import Testimonials from '$lib/components/Testimonials.svelte';
+  import Footer from '$lib/components/Footer.svelte';
  
 </script>
 
@@ -19,3 +20,4 @@
 <WhyUs/>
 <HowItWorks/>
 <Testimonials/>
+<Footer/>

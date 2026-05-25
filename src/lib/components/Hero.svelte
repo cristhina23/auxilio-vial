@@ -94,7 +94,8 @@
       <h1
         class="
           font-title
-          text-[2.25rem]
+          text-[1.95rem]
+          min-[380px]:text-[2.25rem]
           font-black
           leading-[1.02]
           tracking-normal

@@ -255,7 +255,8 @@
       class="
         container-base
         mt-3
-        overflow-hidden
+        max-h-[calc(100svh-6rem)]
+        overflow-y-auto
         rounded-2xl
         border
         border-white/5

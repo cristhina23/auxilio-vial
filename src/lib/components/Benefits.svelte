@@ -13,21 +13,24 @@
     z-30
     bg-white
     px-4
-    h-40
-    
+    h-auto
+    pb-12
+    sm:pb-16
+    lg:pb-20
   "
   aria-label="Beneficios"
 >
-  <div class="container-base relative min-h-[inherit]">
+  <div class="container-base relative">
     <div
       class="
         benefits-card
-        absolute
-        top-[-22px]
-        right-4
-        left-4
+        relative
         z-40
         mx-auto
+        mt-[-22px]
+        sm:mt-[-36px]
+        lg:mt-[-48px]
+        w-full
         grid
         max-w-[1180px]
         gap-8
@@ -36,11 +39,9 @@
         px-7
         py-9
         shadow-card
-        sm:top-[-36px]
         sm:grid-cols-2
         sm:px-10
         sm:py-10
-        lg:top-[-48px]
         lg:grid-cols-4
         lg:gap-14
         lg:px-16
