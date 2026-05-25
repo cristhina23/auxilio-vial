@@ -51,18 +51,21 @@
 <header
   class="
     fixed
-    top-4
-    left-0
+    top-0
     z-50
     w-full
-    px-4
+    bg-black
+  
   "
 >
   <nav
     class="
       container-base
       flex
-      h-[64px]
+      h-18
+  
+      w-full 
+      
       items-center
       justify-between
       rounded-2xl
@@ -70,6 +73,7 @@
       border-white/5
       bg-black/80
       px-4
+      py-2
       backdrop-blur-xl
       shadow-[0_0_40px_rgba(0,0,0,0.35)]
       lg:px-6
@@ -190,30 +194,26 @@
     <a
       href={`tel:+${businessInfo.phone.replace(/\s/g, '')}`}
       class="
+        cta-glow
         hidden
         items-center
         gap-2
         rounded-xl
-        bg-primary
         px-5
         py-3
         pr-6
         text-sm
         font-semibold
         text-white
-        shadow-[0_0_25px_rgba(229,9,20,0.25)]
-        transition-all
-        duration-300
-        hover:bg-primary-hover
-        hover:scale-[1.02]
-        hover:shadow-[0_0_35px_rgba(229,9,20,0.35)]
         lg:flex
       "
     >
-      <Phone
-        size={17}
-        strokeWidth={2.5}
-      />
+      <span class="phone-ring" aria-hidden="true">
+        <Phone
+          size={17}
+          strokeWidth={2.5}
+        />
+      </span>
 
       <span class="leading-none">
         {businessInfo.phone}
@@ -300,24 +300,23 @@
           href={`tel:+${businessInfo.phone.replace(/\s/g, '')}`}
           onclick={closeMenu}
           class="
+            cta-glow
             mt-2
             flex
             items-center
             justify-center
             gap-2
             rounded-xl
-            bg-primary
             px-5
             py-3
             text-sm
             font-semibold
             text-white
-            transition-all
-            duration-300
-            hover:bg-primary-hover
           "
         >
-          <Phone size={18} />
+          <span class="phone-ring" aria-hidden="true">
+            <Phone size={18} />
+          </span>
 
           <span>{businessInfo.phone}</span>
         </a>

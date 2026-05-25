@@ -3,18 +3,18 @@
 // ========================================
 
 export const businessInfo = {
-  name: 'Auxilio Vial',
+  name: 'Rescate Vial Express',
 
-  shortName: 'AV',
+  shortName: 'Rescate Vial',
 
   slogan: 'Estamos donde nos necesites',
 
   description:
     'Servicio de auxilio vial rápido, seguro y disponible 24/7 en Lima y Callao.',
 
-  phone: '946 123 456',
+  phone: '932 716 423',
 
-  whatsapp: '51946123456',
+  whatsapp: '51932716423',
 
   email: 'hola@auxiliovial.com',
 
@@ -115,110 +115,101 @@ export const heroContent = {
 
 export const features = [
   {
-    title: 'Disponibilidad 24/7',
+    title: 'Atención 24/7',
 
     description:
-      'Atendemos emergencias todos los días del año.',
+      'Respondemos emergencias vehiculares todos los días, a cualquier hora.',
   },
 
   {
-    title: 'Cobertura en Lima y Callao',
+    title: 'Cobertura en Lima',
 
     description:
-      'Llegamos a toda Lima Metropolitana y Callao.',
+      'Llegamos rápidamente a distintos distritos de Lima Metropolitana.',
   },
 
   {
-    title: 'Equipos modernos',
+    title: 'Personal capacitado',
 
     description:
-      'Contamos con herramientas y grúas modernas.',
+      'Trabajamos con técnicos preparados para ayudarte de forma segura.',
   },
 
   {
-    title: 'Precios justos',
+    title: 'Atención rápida',
 
     description:
-      'Sin cargos ocultos ni costos sorpresa.',
+      'Priorizamos tiempos de respuesta rápidos para ayudarte cuanto antes.',
   },
 ];
-
 // ========================================
 // SERVICES
 // ========================================
 
 export const services = [
   {
-    title: 'Cambio de llantas',
+    id: 'paso-corriente',
 
-    description:
-      'Te ayudamos a cambiar tu llanta de forma rápida y segura.',
-
-    image: '/images/services/cambio-llantas.jpg',
-  },
-
-  {
-    title: 'Auxilio en accidentes',
-
-    description:
-      'Asistencia inmediata en caso de accidentes o incidentes.',
-
-    image: '/images/services/accidentes.jpg',
-  },
-
-  {
-    title: 'Servicio de grúa',
-
-    description:
-      'Traslado seguro de tu vehículo donde lo necesites.',
-
-    image: '/images/services/grua.jpg',
-  },
-
-  {
     title: 'Paso de corriente',
 
     description:
-      'Solucionamos fallas de batería al instante.',
+      'Encendemos tu vehículo rápidamente cuando la batería se descarga.',
 
-    image: '/images/services/corriente.jpg',
+    image: 'service-1.png',
   },
 
   {
-    title: 'Suministro de gasolina',
+    id: 'cambio-neumatico',
+
+    title: 'Cambio de neumático',
 
     description:
-      'Llevamos combustible donde lo necesites.',
+      'Realizamos el cambio de neumáticos de forma rápida y segura.',
 
-    image: '/images/services/gasolina.jpg',
+    image: 'service-2.png',
   },
 
   {
-    title: 'Apertura de vehículos',
+    id: 'inflado-neumatico',
+
+    title: 'Inflado de neumáticos',
 
     description:
-      'Abrimos tu vehículo sin dañar cerraduras.',
+      'Inflamos tus neumáticos para que puedas continuar tu camino.',
 
-    image: '/images/services/apertura.jpg',
+    image: 'service-3.png',
   },
 
-  {
-    title: 'Traslado de vehículos',
+  { 
+    id: 'apertura-puerta',
+
+    title: 'Apertura de puertas',
 
     description:
-      'Movemos tu vehículo de forma segura y profesional.',
+      'Abrimos tu vehículo sin dañar cerraduras ni afectar la seguridad.',
 
-    image: '/images/services/traslado.jpg',
+    image: 'service-4.png',
   },
+];
 
-  {
-    title: 'Revisión básica en vía',
+// ========================================
+// COVERAGE
+// ========================================
 
-    description:
-      'Diagnóstico rápido para ayudarte a continuar tu camino.',
-
-    image: '/images/services/revision.jpg',
-  },
+export const coverageZones = [
+  'Santiago de Surco',
+  'San Borja',
+  'Miraflores',
+  'San Isidro',
+  'Lima',
+  'San Martín de Porres',
+  'Los Olivos',
+  'Ate',
+  'Chaclacayo',
+  'Chosica',
+  'Breña',
+  'Jesús María',
+  'San Miguel',
 ];
 
 // ========================================
@@ -255,7 +246,7 @@ export const stats = [
   },
 
   {
-    value: '15K+',
+    value: '5K+',
     label: 'Servicios realizados',
   },
 
