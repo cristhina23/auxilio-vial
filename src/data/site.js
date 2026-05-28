@@ -16,8 +16,6 @@ export const businessInfo = {
 
   whatsapp: '51932716423',
 
-  email: 'hola@auxiliovial.com',
-
   address: 'Lima, Perú',
 
   serviceHours: '24/7',
@@ -98,14 +96,15 @@ export const heroContent = {
     },
   ],
 
-  floatingCard: {
-    title: 'Tiempo promedio de llegada',
+    floatingCard: {
+    title: 'Asistencia vial confiable',
 
-    value: '25',
+    value: '24/7',
 
-    unit: 'min',
+    unit: '',
 
-    description: 'En Lima y Callao',
+    description:
+      'Atención rápida y segura en Lima',
   },
 };
 
@@ -210,6 +209,7 @@ export const coverageZones = [
   'Breña',
   'Jesús María',
   'San Miguel',
+  'Rimac',
 ];
 
 // ========================================

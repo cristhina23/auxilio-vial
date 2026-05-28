@@ -10,6 +10,17 @@
 </a>
 
 <style>
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .whatsapp-float {
     position: fixed;
     bottom: 2rem;
@@ -25,6 +36,16 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 1000;
     transition: transform 0.2s;
+    animation: pulse 2.5s ease-in-out infinite, float 3s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+    100% { transform: scale(1); }
+  }
+  @keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
   }
   .whatsapp-float:hover { transform: scale(1.07); }
 </style>
