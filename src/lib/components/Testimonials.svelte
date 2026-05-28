@@ -1,5 +1,13 @@
 <script>
-  import { ArrowLeft, ArrowRight, MessageCircle, Phone, Star } from '@lucide/svelte';
+  import {
+    ArrowLeft,
+    ArrowRight,
+    MessageCircle,
+    Phone,
+    Star,
+  } from '@lucide/svelte';
+
+  import { onMount } from 'svelte';
 
   import { ctaContent } from '../../data/site.js';
 
@@ -11,13 +19,15 @@
       review:
         'Excelente servicio, llegaron súper rápido cuando se me pinchó la llanta. Muy recomendados.',
     },
+
     {
       name: 'Andrea R.',
       location: 'San Miguel',
       avatar: 'AR',
       review:
-        'Tuve un accidente y me ayudaron con la grúa de inmediato. Muy profesionales y atentos.',
+        'La atención fue rápida y muy profesional. Me ayudaron inmediatamente.',
     },
+
     {
       name: 'Jorge L.',
       location: 'La Molina',
@@ -25,28 +35,79 @@
       review:
         'Se me acabó la gasolina y en menos de 30 minutos ya estaba de vuelta en camino.',
     },
+
     {
       name: 'María P.',
       location: 'Miraflores',
       avatar: 'MP',
       review:
-        'Me quedé sin batería de noche y vinieron sin demora. El técnico fue muy amable.',
+        'Me quedé sin batería de noche y vinieron sin demora. Muy amables.',
     },
+
     {
       name: 'Renato G.',
       location: 'San Borja',
       avatar: 'RG',
       review:
-        'Atención clara desde el primer mensaje. Llegaron a tiempo y solucionaron todo rápido.',
+        'Excelente comunicación desde el primer momento. Muy confiables.',
     },
+
     {
       name: 'Lucía T.',
       location: 'Los Olivos',
       avatar: 'LT',
       review:
-        'Necesitaba abrir mi auto y no dañaron nada. Servicio ordenado y confiable.',
+        'Abrieron mi auto sin dañarlo. Servicio rápido y ordenado.',
     },
   ];
+
+  let start = $state(0);
+
+  let perPage = $state(3);
+
+  const visible = $derived.by(() => {
+    return [
+      ...reviews.slice(start),
+      ...reviews.slice(0, start),
+    ].slice(0, perPage);
+  });
+
+  const next = () => {
+    start =
+      (start + 1) % reviews.length;
+  };
+
+  const prev = () => {
+    start =
+      (start - 1 + reviews.length) %
+      reviews.length;
+  };
+
+  onMount(() => {
+    const updatePerPage = () => {
+      if (window.innerWidth < 768) {
+        perPage = 1;
+      } else if (window.innerWidth < 1024) {
+        perPage = 2;
+      } else {
+        perPage = 3;
+      }
+    };
+
+    updatePerPage();
+
+    window.addEventListener(
+      'resize',
+      updatePerPage
+    );
+
+    return () => {
+      window.removeEventListener(
+        'resize',
+        updatePerPage
+      );
+    };
+  });
 </script>
 
 <section
@@ -54,142 +115,279 @@
   class="
     testimonials-section
     relative
+    overflow-visible
     bg-white
     px-4
     pb-20
-    pt-0
+    pt-12
     text-black
+    sm:pt-24
     lg:pb-24
   "
 >
-  <div class="container-base">
+  <div
+    class="
+      container-base
+      relative
+    "
+  >
+    <!-- CTA -->
     <div
       class="
-        cta-panel
-        absolute
+        cta-wrapper
+        relative
         z-20
-        -mt-12
-        grid
-        gap-6
-        rounded-xl
-        bg-primary
-        p-6
-        text-white
-        shadow-[0_24px_70px_rgba(229,9,20,0.28)]
-        sm:p-8
-        lg:grid-cols-[1fr_auto]
-        lg:items-center
+        mb-16
+        sm:-mt-32
+        sm:mb-20
+        lg:-mt-36
       "
     >
-      <div>
-        <span class="text-sm font-black text-white/82">
-          ¿Necesitas ayuda ahora?
-        </span>
+      <div
+        class="
+          cta-panel
+          grid
+          gap-6
+          rounded-[28px]
+          p-6
+          text-white
+          shadow-[0_24px_70px_rgba(229,9,20,0.28)]
+          sm:p-8
+          lg:grid-cols-[1fr_auto]
+          lg:items-center
+        "
+      >
+        <!-- LEFT -->
+        <div>
+          <span
+            class="
+              text-sm
+              font-black
+              text-white/82
+            "
+          >
+            ¿Necesitas ayuda ahora?
+          </span>
 
-        <h2 class="mt-2 font-title text-3xl font-black leading-tight sm:text-4xl">
-          {ctaContent.title}
-        </h2>
+          <h2
+            class="
+              mt-2
+              font-title
+              text-[2rem]
+              font-black
+              leading-tight
+              sm:text-4xl
+            "
+          >
+            {ctaContent.title}
+          </h2>
 
-        <p class="mt-3 text-sm font-semibold text-white/82">
-          {ctaContent.description}
-        </p>
-      </div>
+          <p
+            class="
+              mt-3
+              max-w-[520px]
+              text-sm
+              font-semibold
+              leading-7
+              text-white/82
+            "
+          >
+            {ctaContent.description}
+          </p>
+        </div>
 
-      <div class="grid gap-3 sm:grid-cols-2 lg:min-w-[480px]">
-        <a
-          href={ctaContent.primaryButton.href}
+        <!-- BUTTONS -->
+        <div
           class="
-            inline-flex
-            min-h-14
-            items-center
-            justify-center
+            grid
             gap-3
-            rounded-lg
-            bg-white
-            px-5
-            text-sm
-            font-black
-            text-primary
-            shadow-[0_16px_40px_rgba(0,0,0,0.16)]
+            sm:grid-cols-2
+            lg:min-w-[480px]
           "
         >
-          <Phone size={18} />
-          {ctaContent.primaryButton.label}
-          <span class="text-[11px] text-primary/60">Llamar ahora</span>
-        </a>
+          <a
+            href={ctaContent.primaryButton.href}
+            class="
+              inline-flex
+              min-h-14
+              items-center
+              justify-center
+              gap-3
+              rounded-full
+              bg-white
+              px-5
+              text-sm
+              font-black
+              text-primary
+              shadow-[0_16px_40px_rgba(0,0,0,0.16)]
+            "
+          >
+            <Phone size={18} />
 
-        <a
-          href={ctaContent.secondaryButton.href}
-          class="
-            inline-flex
-            min-h-14
-            items-center
-            justify-center
-            gap-3
-            rounded-lg
-            border
-            border-white/35
-            px-5
-            text-sm
-            font-black
-            text-white
-            transition
-            duration-300
-            hover:bg-white/10
-          "
-        >
-          <MessageCircle size={18} />
-          {ctaContent.secondaryButton.label}
-         
-        </a>
+            {ctaContent.primaryButton.label}
+
+            <span
+              class="
+                text-[11px]
+                text-primary/60
+              "
+            >
+              Llamar ahora
+            </span>
+          </a>
+
+          <a
+            href={ctaContent.secondaryButton.href}
+            class="
+              inline-flex
+              min-h-14
+              items-center
+              justify-center
+              gap-3
+              rounded-full
+              border
+              border-white/35
+              px-5
+              text-sm
+              font-black
+              text-white
+              transition
+              duration-300
+              hover:bg-white/10
+            "
+          >
+            <MessageCircle size={18} />
+
+            {ctaContent.secondaryButton.label}
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="mt-26 flex flex-col pt-20 gap-6 lg:mt-20 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-[520px]">
-        <span class="text-[11px] font-black uppercase text-primary">
+    <!-- HEADER -->
+    <div
+      class="
+        flex
+        flex-col
+        gap-6
+        lg:flex-row
+        lg:items-end
+        lg:justify-between
+      "
+    >
+      <div class="max-w-[720px]">
+        <span
+          class="
+            text-[11px]
+            font-black
+            uppercase
+            text-primary
+          "
+        >
           Lo que dicen nuestros clientes
         </span>
 
-        <h2 class="mt-4 font-title text-[2rem] font-black leading-[1.08] sm:text-[2.7rem]">
+        <h2
+          class="
+            mt-4
+            font-title
+            text-[2rem]
+            font-black
+            leading-[1.08]
+            sm:text-[2.7rem]
+          "
+        >
           Historias reales de personas que
-          <span class="text-primary"> confiaron en nosotros</span>
+          <span class="text-primary">
+            confían en nosotros
+          </span>
         </h2>
       </div>
 
-      <div class="hidden gap-3 lg:flex">
-        <button class="review-nav" aria-label="Anterior">
+      <!-- DESKTOP NAV -->
+      <div
+        class="
+          hidden
+          gap-3
+          lg:flex
+        "
+      >
+        <button
+          type="button"
+          class="review-nav"
+          onclick={prev}
+        >
           <ArrowLeft size={20} />
         </button>
 
-        <button class="review-nav" aria-label="Siguiente">
+        <button
+          type="button"
+          class="review-nav"
+          onclick={next}
+        >
           <ArrowRight size={20} />
         </button>
       </div>
     </div>
 
-    <div class="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {#each reviews as item}
+    <!-- REVIEWS -->
+    <div
+      class="
+        mt-10
+        grid
+        gap-5
+        md:grid-cols-2
+        lg:grid-cols-3
+      "
+    >
+      {#each visible as item}
         <article
           class="
             review-card
-            rounded-xl
+            rounded-[24px]
             bg-white
             p-6
-            shadow-[0_18px_55px_rgba(0,0,0,0.08)]
+            animate-review
           "
         >
-          <div class="flex gap-1 text-primary">
-            {#each Array(5) as _}
-              <Star size={16} fill="currentColor" />
+          <!-- STARS -->
+          <div
+            class="
+              flex
+              gap-1
+              text-primary
+            "
+          >
+            {#each [1,2,3,4,5] as _}
+              <Star
+                size={16}
+                fill="currentColor"
+              />
             {/each}
           </div>
 
-          <p class="mt-5 text-sm font-medium leading-7 text-black/68">
+          <!-- REVIEW -->
+          <p
+            class="
+              mt-5
+              text-sm
+              font-medium
+              leading-7
+              text-black/68
+            "
+          >
             “{item.review}”
           </p>
 
-          <div class="mt-6 flex items-center gap-3">
+          <!-- USER -->
+          <div
+            class="
+              mt-6
+              flex
+              items-center
+              gap-3
+            "
+          >
             <span
               class="
                 flex
@@ -208,11 +406,24 @@
             </span>
 
             <div>
-              <strong class="block text-sm font-black text-black">
+              <strong
+                class="
+                  block
+                  text-sm
+                  font-black
+                  text-black
+                "
+              >
                 {item.name}
               </strong>
 
-              <span class="text-xs font-semibold text-black/45">
+              <span
+                class="
+                  text-xs
+                  font-semibold
+                  text-black/45
+                "
+              >
                 {item.location}
               </span>
             </div>
@@ -220,6 +431,8 @@
         </article>
       {/each}
     </div>
+
+   
   </div>
 </section>
 
@@ -241,29 +454,90 @@
         rgba(255, 255, 255, 0.18),
         transparent 15rem
       ),
-      linear-gradient(135deg, #b80710 0%, #e50914 58%, #ff1f29 100%);
+      linear-gradient(
+        135deg,
+        #b80710 0%,
+        #e50914 58%,
+        #ff1f29 100%
+      );
   }
 
   .review-card {
-    border: 1px solid rgba(0, 0, 0, 0.045);
+    border:
+      1px solid rgba(0, 0, 0, 0.045);
+
+    box-shadow:
+      0 18px 55px
+      rgba(0, 0, 0, 0.08);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .review-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+      0 24px 70px
+      rgba(0, 0, 0, 0.12);
   }
 
   .review-nav {
     display: inline-flex;
-    width: 42px;
-    height: 42px;
+
+    width: 46px;
+    height: 46px;
+
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+
+    border-radius: 12px;
+
     background: #e50914;
-    color: #ffffff;
+
+    color: white;
+
     transition:
       transform 0.25s ease,
-      background 0.25s ease;
+      background 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .review-nav:hover {
     background: #ff1f29;
+
     transform: translateY(-2px);
+
+    box-shadow:
+      0 12px 28px
+      rgba(229, 9, 20, 0.28);
+  }
+
+  .review-nav:active {
+    transform: scale(0.92);
+  }
+
+  .animate-review {
+    animation:
+      reviewIn 0.4s ease;
+  }
+
+  @keyframes reviewIn {
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(20px)
+        scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
   }
 </style>

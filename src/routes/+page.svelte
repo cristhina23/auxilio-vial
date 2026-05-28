@@ -7,6 +7,7 @@
   import HowItWorks from '$lib/components/HowItWorks.svelte';
   import Testimonials from '$lib/components/Testimonials.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import WhatsAppButton from '$lib/components/WhatsAppButton.svelte';
  
 </script>
 

@@ -15,8 +15,10 @@
     border-white/5
     bg-black
     px-4
-    pt-16
+    pt-14
     text-white
+    sm:pt-16
+    lg:pt-20
   "
 >
   <!-- BACKGROUND GLOW -->
@@ -25,12 +27,15 @@
       absolute
       left-1/2
       top-0
-      h-[420px]
-      w-[420px]
+      h-[320px]
+      w-[320px]
       -translate-x-1/2
       rounded-full
       bg-primary/10
-      blur-[140px]
+      blur-[120px]
+      sm:h-[420px]
+      sm:w-[420px]
+      sm:blur-[140px]
     "
   />
 
@@ -49,12 +54,23 @@
         border-b
         border-white/6
         pb-12
+        text-center
+        sm:gap-14
         md:grid-cols-2
+        md:text-left
         lg:grid-cols-4
+        lg:gap-10
       "
     >
       <!-- BRAND -->
-      <div>
+      <div
+        class="
+          flex
+          flex-col
+          items-center
+          md:items-start
+        "
+      >
         <a
           href="#inicio"
           class="
@@ -67,9 +83,11 @@
             src="/logo.png"
             alt="Rescate Vial Express"
             class="
-              h-16
-              w-16
+              h-14
+              w-14
               object-contain
+              sm:h-16
+              sm:w-16
             "
           />
 
@@ -77,10 +95,11 @@
             <h3
               class="
                 font-title
-                text-2xl
+                text-[1.5rem]
                 font-black
                 uppercase
                 leading-none
+                sm:text-2xl
               "
             >
               RESCATE
@@ -90,11 +109,12 @@
               class="
                 mt-1
                 block
-                text-sm
+                text-[11px]
                 font-black
                 uppercase
-                tracking-[0.3em]
+                tracking-[0.28em]
                 text-primary
+                sm:text-sm
               "
             >
               VIAL EXPRESS
@@ -105,7 +125,7 @@
         <p
           class="
             mt-5
-            max-w-[280px]
+            max-w-[290px]
             text-sm
             leading-7
             text-white/58
@@ -118,7 +138,14 @@
       </div>
 
       <!-- LINKS -->
-      <div>
+      <div
+        class="
+          flex
+          flex-col
+          items-center
+          md:items-start
+        "
+      >
         <h4
           class="
             text-sm
@@ -162,7 +189,14 @@
       </div>
 
       <!-- SERVICES -->
-      <div>
+      <div
+        class="
+          flex
+          flex-col
+          items-center
+          md:items-start
+        "
+      >
         <h4
           class="
             text-sm
@@ -202,7 +236,14 @@
       </div>
 
       <!-- CONTACT -->
-      <div>
+      <div
+        class="
+          flex
+          flex-col
+          items-center
+          md:items-start
+        "
+      >
         <h4
           class="
             text-sm
@@ -249,18 +290,24 @@
       class="
         flex
         flex-col
-        gap-5
-        py-6
+        items-center
+        gap-6
+        py-7
+        text-center
         text-sm
         text-white/42
         lg:flex-row
-        lg:items-center
         lg:justify-between
+        lg:text-left
       "
     >
-      <p>
-        © 2026 Rescate Vial Express. Todos los
-        derechos reservados.
+      <p
+        class="
+          leading-7
+        "
+      >
+        © 2026 Rescate Vial Express.
+        Todos los derechos reservados.
       </p>
 
       <!-- CC TECH -->
@@ -328,11 +375,16 @@
   .cc-tech {
     display: inline-flex;
 
+    flex-wrap: wrap;
+
     align-items: center;
+    justify-content: center;
 
     gap: 0.75rem;
 
-    font-size: 0.95rem;
+    text-align: center;
+
+    font-size: 0.92rem;
     font-weight: 700;
 
     color: rgba(255, 255, 255, 0.72);
@@ -358,6 +410,8 @@
 
     width: 34px;
     height: 34px;
+
+    flex-shrink: 0;
   }
 
   .heart {
@@ -391,7 +445,9 @@
 
     border-radius: 999px;
 
-    border: 2px solid rgba(255, 0, 43, 0.75);
+    border:
+      2px solid
+      rgba(255, 0, 43, 0.75);
 
     animation:
       ripple 2s infinite ease-out;
@@ -444,6 +500,18 @@
       opacity: 0;
 
       transform: scale(3.2);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cc-tech {
+      max-width: 280px;
+
+      line-height: 1.8;
+    }
+
+    .footer-link:hover {
+      transform: none;
     }
   }
 </style>
