@@ -5,7 +5,7 @@
 	import {
 		seoConfig,
 		businessInfo,
-	} from '../../data/site.js';
+	} from '../data/site.js';
 
 	let { children } = $props();
 
