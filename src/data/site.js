@@ -451,20 +451,70 @@ export const socialLinks = [
 // ========================================
 
 export const seoConfig = {
-  title: 'Auxilio Vial | Servicio de Auxilio Vial 24/7 en Lima',
+  title:
+    'Rescate Vial Express | Paso de Corriente, Cambio de Neumático y Apertura de Autos en Lima 24/7',
 
   description:
-    'Servicio de auxilio vial en Lima y Callao. Cambio de llantas, grúa, batería, gasolina y asistencia vehicular 24/7.',
+    'Rescate Vial Express brinda asistencia vial 24/7 en Lima. Servicio de paso de corriente, cambio de neumáticos, inflado de llantas y apertura de vehículos. Atención rápida en Surco, San Borja, Miraflores, San Isidro, Los Olivos, SMP, Ate, Chaclacayo, Chosica, Breña, Jesús María, San Miguel y más.',
 
   keywords: [
-    'auxilio vial',
-    'grúa en lima',
-    'servicio de grúa',
-    'auxilio mecánico',
+    // marca
+    'Rescate Vial Express',
+
+    // servicios principales
     'paso de corriente',
-    'cambio de llantas',
-    'grúa 24 horas',
+    'paso de corriente lima',
+    'bateria descargada',
+    'bateria descargada lima',
+    'auxilio bateria',
+    'cambio de neumatico',
+    'cambio de llanta',
+    'cambio de llanta lima',
+    'inflado de neumaticos',
+    'inflado de llantas',
+    'apertura de vehiculos',
+    'apertura de autos',
+    'llaves dentro del carro',
+    'apertura de puertas de auto',
+
+    // términos generales
+    'auxilio vial lima',
+    'asistencia vial lima',
+    'servicio vial lima',
+    'emergencia vehicular',
+    'auxilio vehicular',
+    'asistencia vehicular',
+    'auxilio vial 24 horas',
+    'auxilio vial 24/7',
+    'servicio de emergencia vehicular',
+
+    // distritos
+    'auxilio vial surco',
+    'auxilio vial san borja',
+    'auxilio vial miraflores',
+    'auxilio vial san isidro',
+    'auxilio vial ate',
+    'auxilio vial los olivos',
+    'auxilio vial san martin de porres',
+    'auxilio vial chaclacayo',
+    'auxilio vial chosica',
+    'auxilio vial breña',
+    'auxilio vial jesus maria',
+    'auxilio vial san miguel',
+
+    // búsquedas frecuentes
+    'carro no enciende',
+    'auto no enciende',
+    'bateria muerta',
+    'llanta pinchada',
+    'llanta desinflada',
+    'olvide las llaves dentro del auto',
+    'asistencia para vehiculos',
+    'servicio vehicular urgente'
   ],
 
-  author: 'Auxilio Vial',
+  author: 'CC Tech Solutions | Cristhina Chacon',
+  url: 'https://rescatevialexpress.com',
+
+  image: '/shareable.png',
 };

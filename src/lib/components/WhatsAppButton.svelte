@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Phone } from '@lucide/svelte';
-  const whatsappNumber = '+51987654321'; // TODO: replace with actual number
+  import { businessInfo } from '../../data/site';
+  const whatsappNumber = businessInfo.whatsapp; 
   const defaultMessage = encodeURIComponent('¡Hola! Necesito ayuda con...');
   const href = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 </script>
