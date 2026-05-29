@@ -37,7 +37,7 @@
       sm:w-[420px]
       sm:blur-[140px]
     "
-  />
+  ></div>
 
   <div
     class="
